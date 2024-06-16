@@ -13,11 +13,12 @@ import Razorpay from 'razorpay'
 import crypto from 'crypto'
 import payment from './routes/payment'
 import { Theatre } from './db'
+import { log } from 'console'
 
 
 
 const app = express()
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT 
 
 connectDB()
 
@@ -31,36 +32,12 @@ app.use('/seat', bookingRoutes)
 app.use('/admin', postRoutes)
 app.use('/payment', payment)
 
+console.log(PORT)
 app.get('/', (req, res) =>{
     res.send(`Server is running `)
 })
 
-const seedTheatres = async () => {
-  
-    const theatres = [
-      {
-        name: 'PVR',
-        location: 'swargate pune',
-        screens: ['Screen 1', 'Screen 2'],
-      },
-      {
-        name: 'INOX',
-        location: 'baner pune',
-        screens: ['Screen 1', 'Screen 2'],
-      },
-    ];
-  
-    try {
-      await Theatre.insertMany(theatres);
-      console.log('Data inserted');
-      process.exit();
-    } catch (error) {
-      console.error(error);
-      process.exit(1);
-    }
-  };
-  
-//   seedTheatres();
+
 
 app.listen(PORT, () => {
     logger.info(`Server is listening on port ${PORT}`)
