@@ -1,4 +1,5 @@
 import express from 'express'
+const app = express()
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -17,8 +18,7 @@ import { log } from 'console'
 
 
 
-const app = express()
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 3000
 
 connectDB()
 
