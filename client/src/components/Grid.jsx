@@ -11,10 +11,10 @@ function Grid() {
     const getMovies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/admin/getMovies"
+          "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/getMovies"
         );
-        console.log(response.data); // Check if data is received
-        setMovies(response.data.data); // Assuming response.data.data contains the array of movies
+        console.log(response.data); 
+        setMovies(response.data.data); 
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error);
@@ -36,10 +36,7 @@ function Grid() {
 
   return (
     <>
-      <div className="text-center p-10">
-        <h1 className="font-bold text-4xl mb-4">Responsive Product Card Grid</h1>
-        <h1 className="text-3xl">Tailwind CSS</h1>
-      </div>
+    
 
       <section
         id="Projects"

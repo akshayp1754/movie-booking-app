@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// import axios from '../../utils/axios/index.js'
 
 function Screen() {
   const [theatreDetails, setTheatreDetails] = useState([]);
@@ -10,11 +11,11 @@ function Screen() {
 
   const getTheatreDetails = async () => {
     try {
-      const theatreResponse = await axios.get("http://localhost:8080/admin/theatre");
+      const theatreResponse = await axios.get("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/theatre");
       console.log("Theatre Response:", theatreResponse.data);
       setTheatreDetails(theatreResponse.data.data);
 
-      const movieResponse = await axios.get("http://localhost:8080/admin/getMovie");
+      const movieResponse = await axios.get("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/getMovie");
       console.log("Movie Response:", movieResponse.data.data);
       setMovies(movieResponse.data.data);
 
@@ -32,12 +33,7 @@ function Screen() {
 
   return (
     <div className="p-5 font-sans">
-      <button
-        onClick={getTheatreDetails}
-        className="px-4 py-2 mb-5 text-white bg-blue-500 rounded hover:bg-blue-700"
-      >
-        Get Theatre Details
-      </button>
+      
       {loading ? (
         <p>Loading...</p>
       ) : error ? (

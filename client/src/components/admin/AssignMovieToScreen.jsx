@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// import axios from '../../utils/axios/index.js'
 
 function AssignMovieToScreen() {
   const [movies, setMovies] = useState([]);
@@ -11,12 +12,12 @@ function AssignMovieToScreen() {
     const fetchMoviesAndTheatre = async () => {
       try {
         const moviesResponse = await axios.get(
-          "http://localhost:8080/admin/getMovies"
+          "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/getMovies"
         );
         setMovies(moviesResponse.data.data);
 
         const theatreResponse = await axios.get(
-          "http://localhost:8080/admin/theatre"
+          "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/theatre"
         );
         setTheatreId(theatreResponse.data.data[0]._id);
       } catch (error) {
@@ -31,7 +32,7 @@ function AssignMovieToScreen() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/admin/assignMovie",
+        "/admin/assignMovie",
         {
           movieId: selectedMovie,
           timing: timing,

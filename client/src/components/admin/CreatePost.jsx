@@ -41,10 +41,7 @@ const CreatePost = () => {
       formData.append("Name", Name);
       formData.append("genre", genre);
       formData.append("description", description);
-      // formData.append("file", image);
-      // const  data  = await axios.post("https://api.bytescale.com/v2/accounts/12a1ygB/uploads/form_data", formData, { headers: {
-      //   'Authorization': 'Bearer public_12a1ygBByTzSKDrcdi3pXrAKr5Sq'
-      // }});
+     
       const data = await axios.post("/admin/movie", formData);
       console.log(data);
       toast.success(data.message);

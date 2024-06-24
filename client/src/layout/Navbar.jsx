@@ -4,9 +4,9 @@ import { logoutUser } from "../redux/actions/auth";
 
 const Navbar = ({ changeView }) => {
   const auth = useSelector((state) => state.auth);
-  console.log(auth);
   const dispatch = useDispatch();
   const handleLogout = () => dispatch(logoutUser());
+
   return (
     <nav
       style={{
@@ -67,28 +67,20 @@ const Navbar = ({ changeView }) => {
                 placeholder="Search post by name..."
                 required=""
               />
-              {/*
-              loader
-               <div
-                style={{
-                  borderBottom: "1px solid dodgerblue",
-                  height: "2px",
-                }}
-                className="absolute left-0 flex items-center pl-3 pointer-events-none"
-              ></div> */}
             </div>
           </div>
-
-          <div className=" inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <div className="ml-3 relative">
               {auth.loaded && auth.token ? (
                 <div className="flex justify-center items-center">
-                  <Link
-                    to="/admin"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium mr-3"
-                  >
-                    Admin
-                  </Link>
+                  {auth.user.role === 1 && (
+                    <Link
+                      to="/admin"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium mr-3"
+                    >
+                      Admin
+                    </Link>
+                  )}
                   <div>
                     <button
                       className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:shadow-solid"

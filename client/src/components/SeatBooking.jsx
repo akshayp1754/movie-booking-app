@@ -26,11 +26,11 @@ function SeatBooking() {
   const fetchBookedSeats = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/seat/getbookings"
+        "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/seat/getbookings"
       );
-      const fetchedBookings = response.data; // Assuming response.data is an array of booking objects
+      const fetchedBookings = response.data; 
       // console.log(fetchedBookings);
-      const bookedSeatIds = fetchedBookings.flatMap((booking) => booking.seats); // Extract all seat IDs
+      const bookedSeatIds = fetchedBookings.flatMap((booking) => booking.seats); 
       setBookedSeats(bookedSeatIds);
     } catch (error) {
       console.error("Error fetching booked seats:", error);

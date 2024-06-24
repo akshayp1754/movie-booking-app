@@ -10,7 +10,7 @@ const receiptId = "1234567890";
 const paymentHandler = async (totalPrice, selectedSeats) => {
   console.log(totalPrice);
   try {
-    const order = await axios.post("http://localhost:8080/payment/order", {
+    const order = await axios.post("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/payment/order", {
       amount: totalPrice * 100,
       currency,
       receipt: receiptId,
@@ -37,7 +37,7 @@ const paymentHandler = async (totalPrice, selectedSeats) => {
         console.log(response.razorpay_order_id, response.razorpay_payment_id);
 
         const validateResponse = await axios.post(
-          "http://localhost:8080/payment/validate",
+          "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/payment/validate",
           body
         );
 

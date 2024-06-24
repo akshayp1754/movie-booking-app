@@ -10,9 +10,7 @@ import { useDispatch } from "react-redux";
 import SeatBooking from "./components/SeatBooking";
 import MovieCardContainer from "./components/MovieCard";
 import Grid from "./components/Grid";
-import SidebarComponent from "./components/admin/SidebarComponent";
-import Movies from "./components/admin/Movies";
-import Theatre from "./components/admin/Theatre";
+
 import Payment from "./components/Payment";
 import Screen from "./components/admin/Screen";
 import AssignMovieToScreen from "./components/admin/AssignMovieToScreen";
@@ -38,13 +36,10 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/seatbooking" element={<SeatBooking />} />
-        <Route path="/" element={<Grid/>} />
-        <Route path="/admin" element={<SidebarComponent/>} />
-        <Route path="/admin/movies" element={<Movies/>} />
-        <Route path="/admin/theatre" element={<Theatre/>} />
-        <Route path="/payment" element={<Payment/>} />
-        <Route path="/theatre" element={<Screen/>} />
-        <Route path="/assignmovies" element={<AssignMovieToScreen/>} />
+        <Route path="/" element={<Grid />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/theatre" element={<Screen />} />
+        <Route path="/assignmovies" element={<AssignMovieToScreen />} />
       </Routes>
       <Footer />
     </div>
