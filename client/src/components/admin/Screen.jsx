@@ -11,11 +11,11 @@ function Screen() {
 
   const getTheatreDetails = async () => {
     try {
-      const theatreResponse = await axios.get("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/theatre");
+      const theatreResponse = await axios.get("http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/theatre");
       console.log("Theatre Response:", theatreResponse.data);
       setTheatreDetails(theatreResponse.data.data);
 
-      const movieResponse = await axios.get("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/admin/getMovie");
+      const movieResponse = await axios.get("http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/getMovie");
       console.log("Movie Response:", movieResponse.data.data);
       setMovies(movieResponse.data.data);
 

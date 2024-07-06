@@ -64,7 +64,7 @@ const Navbar = ({ changeView }) => {
                 rounded-md
                 focus:outline-none
                 bg-white-50  text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  "
-                placeholder="Search post by name..."
+                placeholder="Search Movies"
                 required=""
               />
             </div>

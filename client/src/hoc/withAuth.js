@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 const withAuth = (Component) => {
   const AuthRoute = (props) => {
     const auth = useSelector((state) => state.auth);
+    console.log("auth: ",auth);
     return auth.token ?  <Navigate to="/" />:<Component {...props} />;
   };
 

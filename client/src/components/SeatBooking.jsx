@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../components/style.css";
 import screen from "../components/screen-thumb.png";
-// import Payment from './Payment'
 import PaymentHandler from "./Payment";
 import paymentHandler from "./Payment";
 import confirmSeat from "./confirmSeat";
 import { useNavigate } from "react-router";
+import privateRoute from "../hoc/privateRoute";
 
-const seatPrice = 650; // Price per seat
+const seatPrice = 650; 
 const rows = 5;
 const cols = 8;
 
@@ -26,7 +26,7 @@ function SeatBooking() {
   const fetchBookedSeats = async () => {
     try {
       const response = await axios.get(
-        "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/seat/getbookings"
+        "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/seat/getbookings"
       );
       const fetchedBookings = response.data; 
       // console.log(fetchedBookings);
@@ -127,10 +127,6 @@ function SeatBooking() {
     </div>
   );
 }
-// function PaymentHandler(totalPrice) {
-//   // Call the payment component function
-//   const paymentComponent = <Payment totalPrice={totalPrice} />;
-//   return paymentComponent;
-// }
 
-export default SeatBooking;
+
+export default privateRoute(SeatBooking);

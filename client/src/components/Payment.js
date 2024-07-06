@@ -37,7 +37,7 @@ const paymentHandler = async (totalPrice, selectedSeats) => {
         console.log(response.razorpay_order_id, response.razorpay_payment_id);
 
         const validateResponse = await axios.post(
-          "http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/payment/validate",
+          "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/payment/validate",
           body
         );
 

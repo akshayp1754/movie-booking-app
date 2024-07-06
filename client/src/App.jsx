@@ -8,12 +8,13 @@ import { Toaster } from "react-hot-toast";
 import { loadUser } from "./redux/actions/auth";
 import { useDispatch } from "react-redux";
 import SeatBooking from "./components/SeatBooking";
-import MovieCardContainer from "./components/MovieCard";
+// import MovieCardContainer from "./components/MovieCard";
 import Grid from "./components/Grid";
 
 import Payment from "./components/Payment";
 import Screen from "./components/admin/Screen";
 import AssignMovieToScreen from "./components/admin/AssignMovieToScreen";
+import CreatePost from "./components/admin/CreatePost";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        <Route path="/grid" element={<MovieCardContainer />} />
+        {/* <Route path="/grid" element={<MovieCardContainer />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/seatbooking" element={<SeatBooking />} />
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/theatre" element={<Screen />} />
         <Route path="/assignmovies" element={<AssignMovieToScreen />} />
+        <Route path="/admin" element={<CreatePost />} />
       </Routes>
       <Footer />
     </div>
