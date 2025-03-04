@@ -42,7 +42,7 @@ const CreatePost = () => {
       formData.append("genre", genre);
       formData.append("description", description);
      
-      const data = await axios.post("http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/movie", formData);
+      const data = await axios.post("http://localhost:8080/admin/movie", formData);
       console.log(data);
       toast.success(data.message);
       clearForm();

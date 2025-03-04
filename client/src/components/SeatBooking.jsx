@@ -26,7 +26,7 @@ function SeatBooking() {
   const fetchBookedSeats = async () => {
     try {
       const response = await axios.get(
-        "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/seat/getbookings"
+        "http://localhost:8080/seat/getbookings"
       );
       const fetchedBookings = response.data; 
       // console.log(fetchedBookings);

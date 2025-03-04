@@ -7,7 +7,7 @@ import {
   login,
   validateToken
 } from "../controllers/auth";
-import { User } from "../db";
+import { User } from "../db/index";
 const router = Router();
 
 // create reset pass link

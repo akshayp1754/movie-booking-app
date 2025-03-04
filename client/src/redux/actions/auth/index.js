@@ -4,7 +4,7 @@ import axios from "../../../utils/axios";
 export const loginUser = (user) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/auth/login", user);
+      const response = await axios.post("http://localhost:8080/auth/login", user);
       const responseData  = response.data;
       const { token } = responseData;
       axios.defaults.headers.common["Authorization"] = `${token}`;
@@ -25,7 +25,7 @@ export const loginUser = (user) => {
 export const signupUser = (user) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/auth/signup", user);
+      const response = await axios.post("http://localhost:8080/auth/signup", user);
       const responseData = response.data;
       const { token } = responseData;
       axios.defaults.headers.common["Authorization"] = `${token}`;
@@ -48,7 +48,7 @@ export const loadUser = () => {
     try {
       const token = localStorage.getItem("token");
       if (!token) return;
-      const response = await axios.get(`http://ec2-15-206-69-49.ap-south-1.compute.amazonaws.com/auth/validate-token/${token}`);
+      const response = await axios.get(`http://localhost:8080/auth/validate-token/${token}`);
       const responseData  = response.data;
       dispatch({
         type: "LOAD_USER",

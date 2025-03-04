@@ -11,7 +11,7 @@ function Grid() {
     const getMovies = async () => {
       try {
         const response = await axios.get(
-          "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/getMovies"
+          "http://localhost:8080/admin/getMovies"
         );
         console.log(response.data); 
         setMovies(response.data.data); 

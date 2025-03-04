@@ -12,12 +12,12 @@ function AssignMovieToScreen() {
     const fetchMoviesAndTheatre = async () => {
       try {
         const moviesResponse = await axios.get(
-          "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/getMovies"
+          "http://localhost:8080/admin/getMovies"
         );
         setMovies(moviesResponse.data.data);
 
         const theatreResponse = await axios.get(
-          "http://ec2-13-51-204-106.eu-north-1.compute.amazonaws.com/admin/theatre"
+          "http://localhost:8080/admin/theatre"
         );
         setTheatreId(theatreResponse.data.data[0]._id);
       } catch (error) {
